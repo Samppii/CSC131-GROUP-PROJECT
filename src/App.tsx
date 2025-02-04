@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
 	const [count, setCount] = useState(0);
+	const [hello, setHello] = useState("");
+
+	useEffect(() => {
+		fetch("/")
+			.then((res) => res.text())
+			.then((text) => setHello(text))
+			.catch((err) => console.error(err));
+	}, []);
 
 	return (
 		<>
@@ -28,6 +36,7 @@ function App() {
 			<p className="read-the-docs">
 				Click on the Vite and React logos to learn more
 			</p>
+			<p>Message from the server: {hello}</p>
 		</>
 	);
 }
