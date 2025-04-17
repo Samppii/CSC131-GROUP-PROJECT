@@ -33,10 +33,12 @@
 
 	padding: clamp(1.125rem, 5vmin + 0.5rem, 3.25rem) 2rem;
 
-	background: linear-gradient(180deg,
-			rgb(0 0 0 / 90%) 0%,
-			rgb(0 0 0 / 50%) 75%,
-			rgb(0 0 0 / 0%) 100%);
+	background: linear-gradient(
+		180deg,
+		rgb(0 0 0 / 90%) 0%,
+		rgb(0 0 0 / 50%) 75%,
+		rgb(0 0 0 / 0%) 100%
+	);
 }
 
 .Hero-link {
@@ -55,10 +57,12 @@
 	margin-inline: 2rem;
 
 	object-fit: cover;
-	background: radial-gradient(circle,
-			rgb(0 0 0 / 75%) 0%,
-			rgb(0 0 0 / 50%) 15%,
-			rgb(0 0 0 / 0%) 65%);
+	background: radial-gradient(
+		circle,
+		rgb(0 0 0 / 75%) 0%,
+		rgb(0 0 0 / 50%) 15%,
+		rgb(0 0 0 / 0%) 65%
+	);
 }
 
 .Hero-textContainer {
@@ -70,11 +74,13 @@
 
 	padding-block: calc(var(--padding) * 0.5) var(--padding);
 
-	background: linear-gradient(0deg,
-			#000 0%,
-			rgb(0 0 0 / 70%) 65%,
-			rgb(0 0 0 / 40%) 90.5%,
-			rgb(0 0 0 / 0%) 100%);
+	background: linear-gradient(
+		0deg,
+		#000 0%,
+		rgb(0 0 0 / 70%) 65%,
+		rgb(0 0 0 / 40%) 90.5%,
+		rgb(0 0 0 / 0%) 100%
+	);
 }
 
 .Hero-text {

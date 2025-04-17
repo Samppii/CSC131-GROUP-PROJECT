@@ -88,7 +88,7 @@ export default function Home() {
 			<Hero ref={heroRef} id='hero' />
 			<Navbar className={clsx('Home-navbar', showNav && 'is-visible')} />
 			<AthleteCarousel athletes={athletes} />
-			<label style={{display:'flex',flexDirection:'row',gap:'1rem'}}>
+			<label style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
 				Number of athletes
 				<input
 					type='range'

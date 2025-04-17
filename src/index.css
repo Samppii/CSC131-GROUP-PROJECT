@@ -34,10 +34,17 @@
 	--tr-link-hover: filter 150ms ease;
 
 	--bs-full-drop:
-		0px 4px 4px 0px rgb(0 0 0 / 25%), 0px -4px 4px 0px rgb(0 0 0 / 25%), 4px 0px 4px 0px rgb(0 0 0 / 25%), -4px 0px 4px 0px rgb(0 0 0 / 25%);
-	--bs-vertical-inner: 0px -4px 4px 0px rgb(0 0 0 / 25%) inset, 0px 4px 4px 0px rgb(0 0 0 / 25%) inset;
+		0px 4px 4px 0px rgb(0 0 0 / 25%), 0px -4px 4px 0px rgb(0 0 0 / 25%), 4px 0px 4px 0px rgb(
+			0 0 0 /
+			25%
+		), -4px 0px 4px 0px rgb(0 0 0 / 25%);
+	--bs-vertical-inner: 0px -4px 4px 0px rgb(0 0 0 / 25%) inset, 0px 4px 4px 0px
+		rgb(0 0 0 / 25%) inset;
 	--bs-full-inner:
-		-4px 0px 4px 0px rgb(0 0 0 / 25%) inset, 4px 0px 4px 0px rgb(0 0 0 / 25%) inset, 0px -4px 4px 0px rgb(0 0 0 / 25%) inset, 0px 4px 8px 0px #000 inset;
+		-4px 0px 4px 0px rgb(0 0 0 / 25%) inset, 4px 0px 4px 0px rgb(0 0 0 / 25%) inset, 0px -4px 4px 0px rgb(
+			0 0 0 /
+			25%
+		) inset, 0px 4px 8px 0px #000 inset;
 
 	--z-navbar: 1000;
 	--z-background: -100;
