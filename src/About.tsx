@@ -1,40 +1,38 @@
-import { useState } from 'react';
 import './About.css';
 import CallToAction from '$lib/components/CallToAction';
-import { Icon } from '@iconify/react';
 import teamSantiago from '$lib/assets/employee.jpg';
 import teamDavid from '$lib/assets/employee2.jpg';
 import teamSantana from '$lib/assets/employee3.jpg';
+import QuestionAnswerList from './lib/components/QuestionAnswerList';
 
 export default function About() {
-	const [openQuestionIndex, setOpenQuestionIndex] = useState<number | null>(null);
-
 	const faqs = [
-		{
+ 		{
+			id: 0,
 			question: 'What services does Players Club Management offer?',
 			answer: 'We provide NIL deal negotiation, brand partnership facilitation, marketing strategy development, financial literacy education, and personal brand coaching for student-athletes.'
 		},
 		{
+			id: 1,
 			question: 'Who can sign with Players Club Management?',
 			answer: 'We work with high school and college athletes across various sports who are looking to maximize their NIL potential.'
 		},
 		{
+			id: 2,
 			question: 'How does Players Club Management get paid?',
 			answer: 'We offer a tiered membership system, and also typically keep an industry-standard 20% commission on any deals we secure. We require a $500 deposit and take a 20% commission on any NIL deals secured.'
 		},
 		{
+			id: 3,
 			question: 'How can brands collaborate with Players Club Management?',
 			answer: 'Brands looking to partner with our athletes can reach out through our contact form or by emailing us directly. We will match brands with the right athletes based on target audience, values, and marketing goals.'
 		},
 		{
+			id: 4,
 			question: 'Do you provide legal support for NIL contracts?',
 			answer: 'Yes, we work with legal professionals to ensure all NIL contracts are reviewed and compliant with NCAA and state regulations.'
 		}
 	];
-
-	const toggleQuestion = (index: number) => {
-		setOpenQuestionIndex(openQuestionIndex === index ? null : index);
-	};
 
 	return (
 		<div className="About">
@@ -144,26 +142,7 @@ export default function About() {
 			<section className="About-faq">
 				<h2 className="About-faqTitle">Frequently Asked Questions</h2>
 
-				{faqs.map((faq, index) => (
-					<div
-						key={index}
-						className={`About-faqItem ${openQuestionIndex === index ? 'is-open' : ''}`}
-						onClick={() => toggleQuestion(index)}
-					>
-						<div className="About-faqQuestion">
-							<h3>{faq.question}</h3>
-							<Icon
-								icon="tabler:square-plus"
-								className="About-faqIcon"
-							/>
-						</div>
-						{openQuestionIndex === index && (
-							<div className="About-faqAnswer">
-								<p>{faq.answer}</p>
-							</div>
-						)}
-					</div>
-				))}
+				<QuestionAnswerList list={faqs} />
 
 				<div className="About-faqCta">
 					<CallToAction icon="tabler:help-circle" to="/contact">

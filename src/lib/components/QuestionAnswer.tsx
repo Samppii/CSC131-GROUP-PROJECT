@@ -50,21 +50,21 @@ export default function QuestionAnswer({
 			onClick={onClick}
 			ref={ref}
 		>
-			<div className='QuestionAnswer-question'>
+			<p className='QuestionAnswer-question'>
 				{question}
 				<Icon
 					className={clsx('QuestionAnswer-icon', open && 'is-enabled')}
 					icon='tabler:square-plus'
 				/>
-			</div>
-			<div
+			</p>
+			<p
 				className='QuestionAnswer-answer'
 				onClick={e => e.stopPropagation()}
 				onKeyDown={e => e.stopPropagation()}
 				ref={answerRef}
 			>
 				{children}
-			</div>
+			</p>
 		</button>
 	);
 }
