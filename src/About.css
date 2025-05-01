@@ -67,7 +67,7 @@
 	max-width: 600px;
 	margin-bottom: 1.5rem;
 	font-size: 1.1rem;
-	line-height: 1.6;
+	line-height: 1.5;
 }
 
 @media (width <= 900px) {
@@ -113,7 +113,7 @@
 .About-subtitle {
 	margin-bottom: 2rem;
 	font-size: 1.2rem;
-	line-height: 1.6;
+	line-height: 1.55;
 	text-align: left;
 }
 
@@ -319,6 +319,11 @@
 
 	.About-sectionTitle {
 		font-size: 1.75rem;
+	}
+
+	.About-subtitle {
+		font-size: 1.1rem;
+		line-height: 1.45;
 	}
 
 	.About-serviceList,
