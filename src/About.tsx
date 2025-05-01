@@ -52,7 +52,7 @@ export default function About() {
 						</p>
 						<div className="About-welcomeCta">
 							<CallToAction icon="tabler:calendar-time" to="/contact">
-								GET IN TOUCH WITH US
+								Get in Touch With Us
 							</CallToAction>
 						</div>
 					</div>
@@ -80,7 +80,7 @@ export default function About() {
 					</p>
 					<div className="About-teamCta">
 						<CallToAction icon="tabler:message-circle" to="/contact">
-							SCHEDULE AN APPOINTMENT
+							Schedule An Appointment
 						</CallToAction>
 					</div>
 				</div>
@@ -134,7 +134,7 @@ export default function About() {
 				</div>
 				<div className="About-teamCta">
 					<CallToAction icon="tabler:user" to="/contact" className="About-sendUsMessage">
-						SEND US A MESSAGE
+						Send Us A Message
 					</CallToAction>
 				</div>
 			</section>
@@ -146,7 +146,7 @@ export default function About() {
 
 				<div className="About-faqCta">
 					<CallToAction icon="tabler:help-circle" to="/contact">
-						Have more questions?
+						Have More Questions?
 					</CallToAction>
 				</div>
 			</section>
