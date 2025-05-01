@@ -120,6 +120,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+	container-type: inline-size;
+}
+
+.About-sectionTitle {
+	text-align: center;
 }
 
 .About-teamMembers {
@@ -127,7 +132,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 3rem;
-    max-width: 1200px;
+	align-self: stretch;
 }
 
 .About-teamMember {

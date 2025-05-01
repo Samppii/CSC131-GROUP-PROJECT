@@ -3,10 +3,12 @@ import CallToAction from '$lib/components/CallToAction';
 import teamSantiago from '$lib/assets/employee.jpg';
 import teamDavid from '$lib/assets/employee2.jpg';
 import teamSantana from '$lib/assets/employee3.jpg';
-import QuestionAnswerList from './lib/components/QuestionAnswerList';
+import QuestionAnswerList from '$lib/components/QuestionAnswerList';
+import EmployeeList, { type ListEmployee } from '$lib/components/EmployeeList';
+import type { QuestionAnswer } from '$lib/QuestionAnswerContext';
 
 export default function About() {
-	const faqs = [
+	const faqs: QuestionAnswer[] = [
  		{
 			id: 0,
 			question: 'What services does Players Club Management offer?',
@@ -32,6 +34,30 @@ export default function About() {
 			question: 'Do you provide legal support for NIL contracts?',
 			answer: 'Yes, we work with legal professionals to ensure all NIL contracts are reviewed and compliant with NCAA and state regulations.'
 		}
+	];
+
+	const employees: ListEmployee[] = [
+		{
+			id: 0,
+			name: 'Santiago Zuniga',
+			position: 'Founder & CEO',
+			body: 'With a deep understanding of the NIL space and a passion for helping athletes succeed, Santiago leads Players Club Management with expertise and dedication. His vision is to create a platform where student-athletes can thrive both on and off the field.',
+			image: teamSantiago,
+		},
+		{
+			id: 1,
+			name: 'David Zuniga',
+			position: 'Business Development Director',
+			body: "David brings a wealth of experience in business strategy and partnership development. His role focuses on creating strategic collaborations between athletes and brands, ensuring that every deal aligns with our athletes' goals and values.",
+			image: teamDavid,
+		},
+		{
+			id: 2,
+			name: 'Santana Zuniga',
+			position: 'Marketing & Branding Specialist',
+			body: 'Santana specializes in brand development and marketing strategies that amplify the reach and impact of our athletes. Her creativity and expertise help student-athletes build compelling personal brands that attract top-tier NIL opportunities.',
+			image: teamSantana,
+		},
 	];
 
 	return (
@@ -88,55 +114,7 @@ export default function About() {
 
 			<section className="About-team">
 				<h2 className="About-sectionTitle">Meet the Team</h2>
-				<div className="About-teamMembers">
-					<div className="About-teamMember">
-						<img src={teamSantiago} alt="Santiago Zuniga" className="About-teamImage" />
-						<div className="About-teamInfo">
-							<h3 className="About-teamName">SANTIAGO ZUNIGA</h3>
-							<h4 className="About-teamTitle">Founder & CEO</h4>
-							<p className="About-teamBio">
-								With a background in collegiate athletics and a passion for helping
-								student-athletes succeed, Santiago founded PCM with
-								a mission to help athletes maximize their NIL value. His sports business network allows
-								him to create a platform where athletes can thrive in the world of NIL.
-							</p>
-						</div>
-					</div>
-
-					<div className="About-teamMember">
-						<img src={teamDavid} alt="David Zuniga" className="About-teamImage" />
-						<div className="About-teamInfo">
-							<h3 className="About-teamName">DAVID ZUNIGA</h3>
-							<h4 className="About-teamTitle">Business Development Director</h4>
-							<p className="About-teamBio">
-								David brings his expertise in business development and partnerships.
-								Specializing in NIL compliance and market analysis, he carefully
-								constructs strategies to ensure that every deal aligns with our
-								athletes' goals and values.
-							</p>
-						</div>
-					</div>
-
-					<div className="About-teamMember">
-						<img src={teamSantana} alt="Santana Zuniga" className="About-teamImage" />
-						<div className="About-teamInfo">
-							<h3 className="About-teamName">SANTANA ZUNIGA</h3>
-							<h4 className="About-teamTitle">Marketing & Operations Manager</h4>
-							<p className="About-teamBio">
-								Santana oversees our marketing and operations processes.
-								With a background in brand development and marketing strategies
-								that prioritize, elevate and expand each athlete's unique qualifications,
-								Santana creates compelling personal brands that
-								attract the top NIL opportunities.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div className="About-teamCta">
-					<CallToAction icon="tabler:user" to="/contact" className="About-sendUsMessage">
-						Send Us A Message
-					</CallToAction>
-				</div>
+				<EmployeeList className="About-teamMembers" employees={employees} />
 			</section>
 
 			<section className="About-faq">
