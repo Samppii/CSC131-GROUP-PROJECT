@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './Components.css';
 import type { Stat } from '$lib/components/StatCard';
 import StatCard from '$lib/components/StatCard';
-import { Link } from 'react-router-dom'; // Assuming this is the Link component being used
+import { Link } from 'react-router-dom'; 
 import clsx from 'clsx';
 import AthleteCard, { type Athlete } from '$lib/components/AthleteCard';
 import amos from '$lib/assets/amos-aguilera.webp';
@@ -163,7 +163,6 @@ export default function AthleteProfile() {
 				>
 					Premiere Pinch-Hitter Pro
 				</h2>
-
 				<p style={{ textAlign: 'left', marginBottom: '1rem' }}>
 					Amos Aguilera is a 6'1", 170-pound first baseman from Fontana, CA,
 					with a tall, projectable frame and room to add strength. A multi-sport
