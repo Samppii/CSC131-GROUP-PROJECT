@@ -1,61 +1,38 @@
 import './Athletes.css';
-import { useState } from 'react';
-import type { CarouselAthlete } from '$lib/components/AthleteCarousel';
+import { useState, useEffect } from 'react';
 import AthleteGrid from '$lib/components/AthleteGrid';
-import athlete0 from '$lib/assets/amos-aguilera.webp';
-import athlete1 from '$lib/assets/athlete1.webp';
-import athlete2 from '$lib/assets/athlete2.jpeg';
-import athlete3 from '$lib/assets/athlete3.jpg';
 import Icon from '$lib/components/Icon';
+import athlete0 from '$lib/assets/amos-aguilera.webp'; // fallback image
 
 export default function Athletes() {
 	const [searchQuery, setSearchQuery] = useState('');
+	const [athletes, setAthletes] = useState<any[]>([]);
 
-	// Sample athlete data - replace with your actual data source
-	const athletes: CarouselAthlete[] = [
-		{
-			id: 1,
-			name: 'Amos Aguilera',
-			position: '1B',
-			school: 'Jurupa Hills High School',
-			tags: ['Baseball', 'NIL', 'Multi-Sport'],
-			image: athlete0,
-		},
-		{
-			id: 2,
-			name: 'John Meower',
-			position: 'Quarterback',
-			school: 'UCLA',
-			tags: ['Football', 'HS'],
-			image: athlete1,
-		},
-		{
-			id: 3,
-			name: 'Edgar Allen Poe',
-			position: 'Team Spirit',
-			school: 'University of Sussex',
-			tags: ['Basketball', 'College', 'MVP'],
-			image: athlete2,
-		},
-		{
-			id: 4,
-			name: 'Jeremy Styles',
-			position: 'Peak Rizzler',
-			school: 'University of Jazz',
-			tags: ['Football', 'HS', 'Star Player'],
-			image: athlete3,
-		},
-	];
+	useEffect(() => {
+		fetch('http://localhost:8000/api/athletes/')
+			.then(res => res.json())
+			.then(data => setAthletes(data))
+			.catch(err => console.error('Failed to fetch athletes:', err));
+	}, []);
 
-	// Filter athletes based on search query
-	const filteredAthletes = athletes.filter(
-		athlete =>
-			athlete.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			athlete.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			athlete.school.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			athlete.tags?.some(tag =>
-				tag.toLowerCase().includes(searchQuery.toLowerCase()),
-			),
+	// Optional fallback/mapping logic
+	const mappedAthletes = athletes.map((a, i) => ({
+		id: i + 1,
+		name: `${a.first_name ?? ''} ${a.last_name ?? ''}`,
+		position: a.sports?.[0]?.name ?? 'N/A',
+		school: a.school ?? '',
+		tags: a.sports?.flatMap((s: { name: any; }) => [s.name]) ?? [],
+		image: athlete0, // Replace with a.image_url if your API supports it
+	}));
+
+	// Safe search filter
+	const filteredAthletes = mappedAthletes.filter(athlete =>
+		athlete.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+		athlete.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
+		athlete.school.toLowerCase().includes(searchQuery.toLowerCase()) ||
+		athlete.tags?.some((tag: string) =>
+			tag.toLowerCase().includes(searchQuery.toLowerCase())
+		)
 	);
 
 	return (
@@ -66,13 +43,7 @@ export default function Athletes() {
 					<p>
 						At Players Club Management, we take pride in representing a diverse
 						roster of talented student-athletes. Our athletes are more than just
-						competitors—they are leaders, influencers, and future business
-						moguls.
-					</p>
-					<p>
-						Discover the remarkable talents of our athletes who are redefining
-						excellence in their sports. Each athlete embodies dedication, skill,
-						and the pursuit of greatness.
+						competitors—they are leaders, influencers, and future business moguls.
 					</p>
 				</div>
 			</section>
@@ -92,9 +63,9 @@ export default function Athletes() {
 				</label>
 			</div>
 
-			{(filteredAthletes.length && (
+			{filteredAthletes.length > 0 ? (
 				<AthleteGrid athletes={filteredAthletes} />
-			)) || (
+			) : (
 				<div className='Athletes-notFound'>
 					<h2>No Athletes Found</h2>
 					<p>Adjust your search terms and try again.</p>

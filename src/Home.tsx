@@ -4,9 +4,7 @@ import Hero from '$lib/components/Hero';
 import Navbar from '$lib/components/Navbar';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import AthleteCarousel, {
-	type CarouselAthlete,
-} from '$lib/components/AthleteCarousel';
+import AthleteCarousel from '$lib/components/AthleteCarousel';
 import amos from '$lib/assets/amos-aguilera.webp';
 import ServiceList, { type Service } from '$lib/components/ServiceList';
 import AboutVideo from '$lib/components/AboutVideo';
@@ -43,15 +41,42 @@ export default function Home() {
 		}
 	});
 
-	// TODO: get athletes from django
-	const athletes: CarouselAthlete[] = [...Array(nAthletes)].map((_, i) => ({
-		id: i,
-		name: 'Amos Aguilera',
-		position: '1B',
-		school: 'Jurupa Hills High School',
-		image: i === 0 ? amos : `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
-		tags: ['Baseball', 'NIL', 'Multi-Sport'],
-	}));
+	// get athletes from django
+
+	type AthleteFromApi = {
+	first_name: string;
+	last_name: string;
+	school: string;
+	sports: { name: string }[];
+	};
+
+	type CarouselAthlete = {
+		id: number;
+		name: string;
+		position: string;
+		school: string;
+		image: string;
+		tags: string[];
+	};
+
+	const [athletes, setAthletes] = useState<CarouselAthlete[]>([]);
+
+	useEffect(() => {
+		fetch('http://localhost:8000/api/athletes/')
+			.then(res => res.json())
+			.then(data => {
+				const mapped = data.map((a: AthleteFromApi, i: number) => ({
+					id: i,
+					name: `${a.first_name} ${a.last_name}`,
+					position: a.sports?.[0]?.name ?? 'N/A',
+					school: a.school ?? '',
+					image: i === 0 ? amos : `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
+					tags: a.sports?.map(s => s.name) ?? [],
+				}));
+				setAthletes(mapped);
+			})
+			.catch(err => console.error('Failed to fetch athletes:', err));
+	}, 		[]);
 
 	// TODO: get services from ???
 	const services: Service[] = [
