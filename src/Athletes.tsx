@@ -21,18 +21,19 @@ export default function Athletes() {
 		name: `${a.first_name ?? ''} ${a.last_name ?? ''}`,
 		position: a.sports?.[0]?.name ?? 'N/A',
 		school: a.school ?? '',
-		tags: a.sports?.flatMap((s: { name: any; }) => [s.name]) ?? [],
+		tags: a.sports?.flatMap((s: { name: any }) => [s.name]) ?? [],
 		image: athlete0, // Replace with a.image_url if your API supports it
 	}));
 
 	// Safe search filter
-	const filteredAthletes = mappedAthletes.filter(athlete =>
-		athlete.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-		athlete.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
-		athlete.school.toLowerCase().includes(searchQuery.toLowerCase()) ||
-		athlete.tags?.some((tag: string) =>
-			tag.toLowerCase().includes(searchQuery.toLowerCase())
-		)
+	const filteredAthletes = mappedAthletes.filter(
+		athlete =>
+			athlete.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			athlete.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			athlete.school.toLowerCase().includes(searchQuery.toLowerCase()) ||
+			athlete.tags?.some((tag: string) =>
+				tag.toLowerCase().includes(searchQuery.toLowerCase()),
+			),
 	);
 
 	return (
@@ -43,7 +44,8 @@ export default function Athletes() {
 					<p>
 						At Players Club Management, we take pride in representing a diverse
 						roster of talented student-athletes. Our athletes are more than just
-						competitors—they are leaders, influencers, and future business moguls.
+						competitors—they are leaders, influencers, and future business
+						moguls.
 					</p>
 				</div>
 			</section>

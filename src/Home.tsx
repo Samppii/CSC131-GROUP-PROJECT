@@ -44,10 +44,10 @@ export default function Home() {
 	// get athletes from django
 
 	type AthleteFromApi = {
-	first_name: string;
-	last_name: string;
-	school: string;
-	sports: { name: string }[];
+		first_name: string;
+		last_name: string;
+		school: string;
+		sports: { name: string }[];
 	};
 
 	type CarouselAthlete = {
@@ -70,13 +70,16 @@ export default function Home() {
 					name: `${a.first_name} ${a.last_name}`,
 					position: a.sports?.[0]?.name ?? 'N/A',
 					school: a.school ?? '',
-					image: i === 0 ? amos : `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
+					image:
+						i === 0
+							? amos
+							: `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
 					tags: a.sports?.map(s => s.name) ?? [],
 				}));
 				setAthletes(mapped);
 			})
 			.catch(err => console.error('Failed to fetch athletes:', err));
-	}, 		[]);
+	}, []);
 
 	// TODO: get services from ???
 	const services: Service[] = [
