@@ -23,10 +23,10 @@ export default function FooterNav() {
 				</FooterNavItem>
 			</ul>
 			<ul className='FooterNav-legal'>
-				<FooterNavItem className='FooterNav-link--legal' to='#'>
+				<FooterNavItem className='FooterNav-link--legal' to='/privacy-policy'>
 					Privacy Policy
 				</FooterNavItem>
-				<FooterNavItem className='FooterNav-link--legal' to='#'>
+				<FooterNavItem className='FooterNav-link--legal' to='/terms-of-service'>
 					Terms of Service
 				</FooterNavItem>
 			</ul>

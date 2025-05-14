@@ -1,5 +1,4 @@
 // privacy policy page i hope
-import React from 'react';
 import CallToAction from '$lib/components/CallToAction';
 
 export default function PrivacyPolicy() {

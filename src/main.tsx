@@ -21,6 +21,8 @@ import Athletes from './Athletes.tsx';
 import Contact from './Contact.tsx';
 import ScrollToTop from './lib/components/ScrollToTop.tsx';
 import AthleteProfile from './AthleteProfile.tsx';
+import TermsOfService from './TermsOfService.tsx';
+import PrivacyPolicy from './PrivacyPolicy.tsx';
 
 // TODO: get url from .env.development or .env.production
 setupFetch(fetch, 'http://localhost:8000');
@@ -40,6 +42,8 @@ if (root) {
 						<Route path='/contact' element={<Contact />} />
 						<Route path='/components' element={<Components />} />
 						<Route path='/athletes/demo' element={<AthleteProfile />} />
+						<Route path='/terms-of-service' element={<TermsOfService />} />
+						<Route path='/privacy-policy' element={<PrivacyPolicy />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
