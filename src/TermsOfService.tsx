@@ -1,6 +1,5 @@
 // terms of service page i hope
 import React from 'react';
-import './Components.css';
 import CallToAction from '$lib/components/CallToAction';
 
 export default function TermsOfService() {
