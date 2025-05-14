@@ -7,8 +7,6 @@ import StatCarousel, {
 	type CarouselStatCard,
 } from './lib/components/StatCarousel';
 
-
-
 interface SportStat {
 	header: string;
 	body: string;
@@ -43,9 +41,9 @@ export default function AthleteProfile() {
 
 	useEffect(() => {
 		fetch('http://localhost:8000/api/athletes/1/') // Update URL if needed
-			.then((res) => res.json())
-			.then((data) => setAthlete(data))
-			.catch((err) => console.error('Failed to fetch athlete:', err));
+			.then(res => res.json())
+			.then(data => setAthlete(data))
+			.catch(err => console.error('Failed to fetch athlete:', err));
 	}, []);
 
 	const tags: ListTag[] =
