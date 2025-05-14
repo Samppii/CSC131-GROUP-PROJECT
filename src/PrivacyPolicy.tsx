@@ -1,19 +1,28 @@
 // privacy policy page i hope
-import CallToAction from '$lib/components/CallToAction';
+import './Document.css'
+import { ContactInfoItem } from '$lib/components/ContactInfo';
 
 export default function PrivacyPolicy() {
 	// i am fr winging this rawdogging hoping for da best
+	const date = '04/29/2025';
+
 	return (
-		<div className='pp-container'>
-			<h1>Players Club Management Privacy Policy</h1>
-			<h2>Privacy Policy</h2>
+		<div className='Document-container'>
+			<header className='Document-header'>
+				<h1 className='Document-title'>Privacy Policy</h1>
+
+				<p className='Document-date'>
+					Effective Date: <time dateTime={date}>{date}</time>
+				</p>
+			</header>
+
 			<p>
 				This Privacy Policy explains how Players Club Management (“we”, “us”, or
 				“our”) collects, uses, and discloses your Personal Information when you
-				visit or make a purchase from our website (the “Site”).{' '}
+				visit or make a purchase from our website (the “Site”).
 			</p>
-			<hr className='default' />
-			<h3>Collecting Personal Information </h3>
+
+			<h2>Collecting Personal Information </h2>
 			<p>
 				When you visit our Site, we collect certain information about your
 				device, your interactions with the Site, and data needed to process
@@ -22,8 +31,8 @@ export default function PrivacyPolicy() {
 				any information that can uniquely identify you. Below are the types of
 				Personal Information we collect and why:
 			</p>
-			<hr className='dashed' />
-			<h4>Device Information</h4>
+
+			<h3>Device Information</h3>
 			<p>
 				<b>Examples of data collected:</b> browser type, IP address, time zone,
 				cookie data, pages/products viewed, search terms, and site interaction
@@ -35,8 +44,8 @@ export default function PrivacyPolicy() {
 				<b>Disclosure:</b> shared with our analytics and hosting service
 				providers (e.g., Google Analytics, Shopify, or other platforms we use).
 			</p>
-			<hr className='dashed' />
-			<h4>Order & Service Information</h4>
+
+			<h3>Order & Service Information</h3>
 			<p>
 				<b>Examples of data collected:</b> name, billing/shipping address,
 				payment details (credit card, Apple Pay, etc.), email address, and phone
@@ -48,8 +57,8 @@ export default function PrivacyPolicy() {
 				<b>Disclosure:</b> shared with payment processors, CRM tools, email
 				marketing platforms, or other vendors necessary to deliver our services.
 			</p>
-			<hr className='dashed' />
-			<h4>Customer Support </h4>
+
+			<h3>Customer Support </h3>
 			<p>
 				<b>Examples of data collected:</b> any personal details you share while
 				requesting support (e.g., contact details, case details).
@@ -58,16 +67,16 @@ export default function PrivacyPolicy() {
 				<b>Disclosure:</b> may be shared with third-party support platforms we
 				use.
 			</p>
-			<hr className='default' />
-			<h3>Minors</h3>
+
+			<h2>Minors</h2>
 			<p>
 				Our services are not intended for individuals under the age of 13. We do
 				not knowingly collect Personal Information from children. If you are a
 				parent or guardian and believe your child has provided us with personal
-				data, please contact us to have it removed.{' '}
+				data, please contact us to have it removed.
 			</p>
-			<hr className='default' />
-			<h3>Sharing Personal Information</h3>
+
+			<h2>Sharing Personal Information</h2>
 			<p>
 				We may share your Personal Information with third-party service
 				providers who assist us in running our business, fulfilling our
@@ -83,16 +92,16 @@ export default function PrivacyPolicy() {
 					rights.
 				</li>
 			</ul>
-			<hr className='default' />
-			<h3>Behavioral Advertising</h3>
+
+			<h2>Behavioral Advertising</h2>
 			<p>
 				We may use your Personal Information to show you relevant ads or
-				marketing. This may include sharing data with:{' '}
+				marketing. This may include sharing data with:
 			</p>
 			<ul>
 				<li>
-					Google Analytics –{' '}
-					<a href='https://policies.google.com/privacy'>Learn more</a> or{' '}
+					Google Analytics –
+					<a href='https://policies.google.com/privacy'>Learn more</a> or
 					<a href='https://tools.google.com/dlpage/gaoptout'>opt-out</a>
 				</li>
 				<li>
@@ -121,8 +130,8 @@ export default function PrivacyPolicy() {
 					</a>
 				</li>
 			</ul>
-			<hr className='default' />
-			<h3>Using Your Information</h3>
+
+			<h2>Using Your Information</h2>
 			<p>We use the information we collect to:</p>
 			<ul>
 				<li>Offer and deliver products or services</li>
@@ -131,9 +140,9 @@ export default function PrivacyPolicy() {
 				<li>Communicate updates or promotions</li>
 				<li>Improve and secure our services</li>
 			</ul>
-			<hr className='default' />
-			<h3>Your Rights</h3>
-			<h4>CCPA (if applicable)</h4>
+
+			<h2>Your Rights</h2>
+			<h3>CCPA (if applicable)</h3>
 			<p>California residents may:</p>
 			<ul>
 				<li>Request access to the personal data we hold</li>
@@ -143,10 +152,10 @@ export default function PrivacyPolicy() {
 			</ul>
 			<p>
 				We do not sell personal data in the conventional sense, but we may share
-				it with third parties as described.{' '}
+				it with third parties as described.
 			</p>
-			<hr className='default' />
-			<h3>Cookies</h3>
+
+			<h2>Cookies</h2>
 			<p>
 				We use cookies to support site functionality, track visitor behavior,
 				and enhance your experience. These may include:
@@ -178,42 +187,37 @@ export default function PrivacyPolicy() {
 				</tbody>
 			</table>
 			<p>
-				You can manage cookies through your browser settings. Learn more at{' '}
-				<a href='http://www.allaboutcookies.org/'>www.allaboutcookies.org</a>
+				You can manage cookies through your browser settings. Learn more at <a href='http://www.allaboutcookies.org/'>www.allaboutcookies.org</a>.
 			</p>
-			<hr className='default' />
-			<h3>Do Not Track </h3>
+
+			<h2>Do Not Track</h2>
 			<p>
 				We do not currently respond to "Do Not Track" signals due to a lack of
 				industry standards.
 			</p>
-			<hr className='default' />
-			<h3>Changes to This Policy</h3>
+
+			<h2>Changes to This Policy</h2>
 			<p>
 				We may revise this Privacy Policy periodically to reflect operational,
 				legal, or regulatory updates. The latest version will always be
 				available on our Site.
 			</p>
-			<hr className='default' />
-			<h3>Contact Us</h3>
+
+			<h2>Contact Us</h2>
 			<p>
 				If you have any questions about this Privacy Policy, please contact us
 				at:
+				<ContactInfoItem
+					icon='tabler:mail'
+					text='playersclubmgmtsjz@gmail.com'
+					to='mailto:playersclubmgmtsjz@gmail.com'
+				/>
+				<ContactInfoItem
+					icon='tabler:phone'
+					text='(909) 232-2422'
+					to='tel:+1(909)232-2422'
+				/>
 			</p>
-			<p>
-				<b>Players Club Management</b>
-			</p>
-			<p>
-				<b>Email:</b> playersclubmgmtsjz@gmail.com
-			</p>
-			<p>
-				<b>Address:</b> 17325 Wabash Ave, Fontana, CA 92336
-			</p>
-			<div style={{ marginTop: '2rem' }}>
-				<CallToAction icon='tabler:mail-forward' to='/contact'>
-					Want to Get in Touch with This Athlete? Contact Us Now
-				</CallToAction>
-			</div>
 		</div>
 	);
 }
