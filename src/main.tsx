@@ -15,12 +15,10 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import Home from './Home.tsx';
 import Layout from './Layout.tsx';
 import { setupFetch } from './fetch.ts';
-import Components from './Components.tsx';
 import About from './About.tsx';
 import Athletes from './Athletes.tsx';
 import Contact from './Contact.tsx';
 import ScrollToTop from './lib/components/ScrollToTop.tsx';
-import AthleteProfile from './AthleteProfile.tsx';
 import TermsOfService from './TermsOfService.tsx';
 import PrivacyPolicy from './PrivacyPolicy.tsx';
 
@@ -40,8 +38,6 @@ if (root) {
 						<Route path='/about' element={<About />} />
 						<Route path='/athletes' element={<Athletes />} />
 						<Route path='/contact' element={<Contact />} />
-						<Route path='/components' element={<Components />} />
-						<Route path='/athletes/demo' element={<AthleteProfile />} />
 						<Route path='/terms-of-service' element={<TermsOfService />} />
 						<Route path='/privacy-policy' element={<PrivacyPolicy />} />
 					</Route>

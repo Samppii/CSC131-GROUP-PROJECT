@@ -47,12 +47,6 @@ export default function Navbar({ className, ...props }: NavbarProps) {
 				<NavbarItem to='/contact' end>
 					Contact
 				</NavbarItem>
-				<NavbarItem to='/components' end>
-					Components
-				</NavbarItem>
-				<NavbarItem to='/athletes/demo' end>
-					Demo Profile
-				</NavbarItem>
 			</ul>
 		</nav>
 	);
