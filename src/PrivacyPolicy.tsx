@@ -212,19 +212,19 @@ export default function PrivacyPolicy() {
 			<p>
 				If you have any questions about this Privacy Policy, please contact us
 				at:
-				<div className='Document-contactInfo'>
-					<ContactInfoItem
-						icon='tabler:mail'
-						text='playersclubmgmtsjz@gmail.com'
-						to='mailto:playersclubmgmtsjz@gmail.com'
-					/>
-					<ContactInfoItem
-						icon='tabler:phone'
-						text='(909) 232-2422'
-						to='tel:+1(909)232-2422'
-					/>
-				</div>
 			</p>
+			<div className='Document-contactInfo'>
+				<ContactInfoItem
+					icon='tabler:mail'
+					text='playersclubmgmtsjz@gmail.com'
+					to='mailto:playersclubmgmtsjz@gmail.com'
+				/>
+				<ContactInfoItem
+					icon='tabler:phone'
+					text='(909) 232-2422'
+					to='tel:+1(909)232-2422'
+				/>
+			</div>
 		</div>
 	);
 }

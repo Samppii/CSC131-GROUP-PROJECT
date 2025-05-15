@@ -157,8 +157,8 @@ export default function TermsOfService() {
 			</p>
 
 			<h2>Contact Us</h2>
-			<p>
-				If you have any questions about these Terms, please contact us at:
+			<p>If you have any questions about these Terms, please contact us at:</p>
+			<div className='Document-contactInfo'>
 				<ContactInfoItem
 					icon='tabler:mail'
 					text='playersclubmgmtsjz@gmail.com'
@@ -169,7 +169,7 @@ export default function TermsOfService() {
 					text='(909) 232-2422'
 					to='tel:+1(909)232-2422'
 				/>
-			</p>
+			</div>
 		</div>
 	);
 }
