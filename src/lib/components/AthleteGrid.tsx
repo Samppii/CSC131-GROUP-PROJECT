@@ -19,7 +19,7 @@ export default function AthleteGrid({
 				<li key={id} className='AthleteGrid-item'>
 					{' '}
 					<AthleteCard
-						to='/athletes/demo'
+						to={`/athletes/${id}`}
 						{...athlete}
 						className='AthleteGrid-athlete'
 					/>{' '}

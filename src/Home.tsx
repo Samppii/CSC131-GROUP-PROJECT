@@ -4,8 +4,7 @@ import Hero from '$lib/components/Hero';
 import Navbar from '$lib/components/Navbar';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import AthleteCarousel from '$lib/components/AthleteCarousel';
-import amos from '$lib/assets/amos-aguilera.webp';
+import AthleteCarousel, { type CarouselAthlete } from '$lib/components/AthleteCarousel';
 import ServiceList, { type Service } from '$lib/components/ServiceList';
 import AboutVideo from '$lib/components/AboutVideo';
 import EmployeeList, { type ListEmployee } from '$lib/components/EmployeeList';
@@ -18,12 +17,12 @@ import TestimonialList, {
 import testimonial1 from '$lib/assets/testimonial1.png';
 import testimonial2 from '$lib/assets/testimonial2.png';
 import FinalHook from '$lib/components/FinalHook';
+import { parseAthletes } from '$lib/athletes';
 
 export default function Home() {
 	const [showNav, setShowNav] = useState(false);
 	const heroRef = useRef<HTMLElement>(null);
-
-	const [nAthletes, setNAthletes] = useState(4);
+	const [athletes, setAthletes] = useState<CarouselAthlete[]>([]);
 
 	useEffect(() => {
 		const callback: IntersectionObserverCallback = entries => {
@@ -41,43 +40,10 @@ export default function Home() {
 		}
 	});
 
-	// get athletes from django
-
-	type AthleteFromApi = {
-		first_name: string;
-		last_name: string;
-		school: string;
-		sports: { name: string }[];
-	};
-
-	type CarouselAthlete = {
-		id: number;
-		name: string;
-		position: string;
-		school: string;
-		image: string;
-		tags: string[];
-	};
-
-	const [athletes, setAthletes] = useState<CarouselAthlete[]>([]);
-
 	useEffect(() => {
-		fetch('http://localhost:8000/api/athletes/')
+		fetch('/api/athletes/')
 			.then(res => res.json())
-			.then(data => {
-				const mapped = data.map((a: AthleteFromApi, i: number) => ({
-					id: i,
-					name: `${a.first_name} ${a.last_name}`,
-					position: a.sports?.[0]?.name ?? 'N/A',
-					school: a.school ?? '',
-					image:
-						i === 0
-							? amos
-							: `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
-					tags: a.sports?.map(s => s.name) ?? [],
-				}));
-				setAthletes(mapped);
-			})
+			.then(data => setAthletes(parseAthletes(data)))
 			.catch(err => console.error('Failed to fetch athletes:', err));
 	}, []);
 
@@ -187,20 +153,6 @@ export default function Home() {
 			<Hero ref={heroRef} id='hero' />
 			<Navbar className={clsx('Home-navbar', showNav && 'is-visible')} />
 			<AthleteCarousel athletes={athletes} />
-			<label style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
-				Number of athletes
-				<input
-					type='range'
-					min='4'
-					max='16'
-					value={nAthletes}
-					onChange={e => {
-						const n = Number.parseInt(e.target.value);
-						if (Number.isNaN(n)) return;
-						setNAthletes(Math.max(n, 1));
-					}}
-				/>
-			</label>
 			<ServiceList services={services} />
 			<AboutVideo />
 			<EmployeeList employees={employees} />

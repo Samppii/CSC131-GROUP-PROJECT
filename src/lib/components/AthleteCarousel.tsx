@@ -44,7 +44,7 @@ export default function AthleteCarousel({
 			<li key={id} className='AthleteCarousel-item'>
 				<AthleteCard
 					key={id}
-					to='/athletes/demo'
+					to={`/athletes/${id}`}
 					data-id={id}
 					ref={node => {
 						if (!node) return;

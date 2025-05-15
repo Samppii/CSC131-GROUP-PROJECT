@@ -2,31 +2,21 @@ import './Athletes.css';
 import { useState, useEffect } from 'react';
 import AthleteGrid from '$lib/components/AthleteGrid';
 import Icon from '$lib/components/Icon';
-import athlete0 from '$lib/assets/amos-aguilera.webp'; // fallback image
+import type { CarouselAthlete } from '$lib/components/AthleteCarousel';
+import { parseAthletes } from '$lib/athletes';
 
 export default function Athletes() {
 	const [searchQuery, setSearchQuery] = useState('');
-	const [athletes, setAthletes] = useState<any[]>([]);
+	const [athletes, setAthletes] = useState<CarouselAthlete[]>([]);
 
 	useEffect(() => {
-		fetch('http://localhost:8000/api/athletes/')
+		fetch('/api/athletes')
 			.then(res => res.json())
-			.then(data => setAthletes(data))
+			.then(data => setAthletes(parseAthletes(data)))
 			.catch(err => console.error('Failed to fetch athletes:', err));
 	}, []);
 
-	// Optional fallback/mapping logic
-	const mappedAthletes = athletes.map((a, i) => ({
-		id: i + 1,
-		name: `${a.first_name ?? ''} ${a.last_name ?? ''}`,
-		position: a.sports?.[0]?.name ?? 'N/A',
-		school: a.school ?? '',
-		tags: a.sports?.flatMap((s: { name: any }) => [s.name]) ?? [],
-		image: athlete0, // Replace with a.image_url if your API supports it
-	}));
-
-	// Safe search filter
-	const filteredAthletes = mappedAthletes.filter(
+	const filteredAthletes = athletes.filter(
 		athlete =>
 			athlete.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
 			athlete.position.toLowerCase().includes(searchQuery.toLowerCase()) ||
