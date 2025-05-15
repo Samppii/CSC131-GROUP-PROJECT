@@ -1,0 +1,64 @@
+.Document-container {
+	counter-reset: section;
+	padding: 1rem 2rem;
+}
+
+.Document-header {}
+
+.Document-title {}
+
+.Document-date {}
+
+h2 {
+	margin-block-start: 4rem;
+}
+
+h3 {
+	margin-block-start: 3rem;
+}
+
+h2::before {
+	content: counter(section) ". ";
+	counter-increment: section;
+}
+
+table {
+	display: grid;
+}
+
+thead,
+tbody,
+tr {
+	display: contents;
+}
+
+.PrivacyPolicy-cookieTable {
+	--border-width: 1px;
+	--border-color: var(--cl-foreground);
+
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.CookieTable-header {
+	border-block-end: var(--border-width) solid var(--border-color);
+}
+
+.CookieTable-header,
+.CookieTable-name,
+.CookieTable-purpose {
+	background-color: var(--cl-background);
+	padding: 0.5rem;
+}
+
+.CookieTable-name {
+	text-align: center;
+}
+
+.Document-contactInfo {
+	margin-block-start: 2rem;
+}
+
+p,
+li {
+	line-height: 1.6;
+}

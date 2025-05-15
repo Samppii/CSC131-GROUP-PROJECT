@@ -1,5 +1,5 @@
 // privacy policy page i hope
-import './Document.css'
+import './Document.css';
 import { ContactInfoItem } from '$lib/components/ContactInfo';
 
 export default function PrivacyPolicy() {
@@ -100,8 +100,8 @@ export default function PrivacyPolicy() {
 			</p>
 			<ul>
 				<li>
-					Google Analytics –
-					<a href='https://policies.google.com/privacy'>Learn more</a> or
+					Google Analytics –{' '}
+					<a href='https://policies.google.com/privacy'>Learn more</a> or{' '}
 					<a href='https://tools.google.com/dlpage/gaoptout'>opt-out</a>
 				</li>
 				<li>
@@ -160,34 +160,39 @@ export default function PrivacyPolicy() {
 				We use cookies to support site functionality, track visitor behavior,
 				and enhance your experience. These may include:
 			</p>
-			<table>
+			<table className='PrivacyPolicy-cookieTable'>
 				<thead>
 					<tr>
-						<th>Cookie Name</th>
-						<th>Purpose</th>
+						<th className='CookieTable-header'>Cookie Name</th>
+						<th className='CookieTable-header'>Purpose</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>_session_id</td>
-						<td>Maintains session data</td>
+						<td className='CookieTable-name'>_session_id</td>
+						<td className='CookieTable-purpose'>Maintains session data</td>
 					</tr>
 					<tr>
-						<td>cart</td>
-						<td>Tracks shopping cart contents</td>
+						<td className='CookieTable-name'>cart</td>
+						<td className='CookieTable-purpose'>
+							Tracks shopping cart contents
+						</td>
 					</tr>
 					<tr>
-						<td>_analytics</td>
-						<td>Website usage analysis</td>
+						<td className='CookieTable-name'>_analytics</td>
+						<td className='CookieTable-purpose'>Website usage analysis</td>
 					</tr>
 					<tr>
-						<td>_marketing_pref</td>
-						<td>Stores your ad tracking choice</td>
+						<td className='CookieTable-name'>_marketing_pref</td>
+						<td className='CookieTable-purpose'>
+							Stores your ad tracking choice
+						</td>
 					</tr>
 				</tbody>
 			</table>
 			<p>
-				You can manage cookies through your browser settings. Learn more at <a href='http://www.allaboutcookies.org/'>www.allaboutcookies.org</a>.
+				You can manage cookies through your browser settings. Learn more at{' '}
+				<a href='http://www.allaboutcookies.org/'>www.allaboutcookies.org</a>.
 			</p>
 
 			<h2>Do Not Track</h2>
@@ -207,16 +212,18 @@ export default function PrivacyPolicy() {
 			<p>
 				If you have any questions about this Privacy Policy, please contact us
 				at:
-				<ContactInfoItem
-					icon='tabler:mail'
-					text='playersclubmgmtsjz@gmail.com'
-					to='mailto:playersclubmgmtsjz@gmail.com'
-				/>
-				<ContactInfoItem
-					icon='tabler:phone'
-					text='(909) 232-2422'
-					to='tel:+1(909)232-2422'
-				/>
+				<div className='Document-contactInfo'>
+					<ContactInfoItem
+						icon='tabler:mail'
+						text='playersclubmgmtsjz@gmail.com'
+						to='mailto:playersclubmgmtsjz@gmail.com'
+					/>
+					<ContactInfoItem
+						icon='tabler:phone'
+						text='(909) 232-2422'
+						to='tel:+1(909)232-2422'
+					/>
+				</div>
 			</p>
 		</div>
 	);
