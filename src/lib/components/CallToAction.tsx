@@ -42,15 +42,15 @@ export default function CallToAction({
 
 function isButtonProps(
 	ctaType: 'button' | 'a' | undefined,
-	props: CallToActionButtonProps | CallToActionAnchorProps,
-): props is CallToActionButtonProps {
+	_props: CallToActionButtonProps | CallToActionAnchorProps,
+): _props is CallToActionButtonProps {
 	return (ctaType && ctaType === 'button') || false;
 }
 
 function isAnchorProps(
 	ctaType: 'button' | 'a' | undefined,
-	props: CallToActionButtonProps | CallToActionAnchorProps,
-): props is CallToActionAnchorProps {
+	_props: CallToActionButtonProps | CallToActionAnchorProps,
+): _props is CallToActionAnchorProps {
 	return !ctaType || ctaType === 'a';
 }
 
