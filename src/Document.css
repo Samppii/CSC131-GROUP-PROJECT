@@ -47,8 +47,8 @@ tr {
 .CookieTable-header,
 .CookieTable-name,
 .CookieTable-purpose {
-	background-color: var(--cl-background);
 	padding: 0.5rem;
+	background-color: var(--cl-background);
 }
 
 .CookieTable-name {
