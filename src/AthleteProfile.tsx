@@ -47,7 +47,9 @@ export default function AthleteProfile() {
 
 				<div className='AthleteProfile-headerInfo'>
 					<h1 className='AthleteProfile-title'>{athlete.name}</h1>
-					<p>{athlete.school} | {athlete.position}</p>
+					<p>
+						{athlete.school} | {athlete.position}
+					</p>
 					{tags && <TagList tags={tags} />}
 				</div>
 			</header>
@@ -58,7 +60,7 @@ export default function AthleteProfile() {
 			</section>
 
 			<section className='AthleteProfile-bio'>
-				<h2 className="AthleteProfile-bioTitle">Bio</h2>
+				<h2 className='AthleteProfile-bioTitle'>Bio</h2>
 				<p>
 					Height: {Math.floor(data.height_inches / 12)}'
 					{data.height_inches % 12}"
@@ -85,6 +87,20 @@ export default function AthleteProfile() {
 					.map(({ id, body }) => (
 						<p key={id}>{body}</p>
 					))}
+			</section>
+
+			<section className='AthleteProfile-gallery'>
+				<h2 className="AthleteProfile-galleryTitle">Gallery</h2>
+				<div className="AthleteProfile-galleryImages">
+					{data.galleries.map(({ id, image, alt }) => (
+						<img
+						key={id}
+						src={image}
+						alt={alt}
+						className='AthleteProfile-galleryImage'
+						/>
+					))}
+				</div>
 			</section>
 
 			<section className='AthleteProfile-callToActionContainer'>

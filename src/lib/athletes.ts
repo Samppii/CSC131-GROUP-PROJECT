@@ -42,6 +42,7 @@ export interface APISocialAccount {
 }
 
 export interface APIGalleryImage {
+	id: number;
 	image: string;
 	alt?: string;
 }
