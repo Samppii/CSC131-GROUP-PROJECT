@@ -89,9 +89,11 @@ main {
 .AthleteProfile-bio p {
 	line-height: 1.4;
 	text-align: left;
+	text-indent: 1rem;
 
 	@container (width > 500px) {
-		line-height: 1.6;
+		line-height: 1.8;
+		text-indent: 2rem;
 	}
 }
 
