@@ -1,13 +1,14 @@
-.Document-container {
-	counter-reset: section;
-	padding: 1rem 2rem;
+.Document-layout {
+	container-type: inline-size;
+	display: grid;
+	place-items: center;
 }
 
-.Document-header {}
-
-.Document-title {}
-
-.Document-date {}
+.Document-container {
+	counter-reset: section;
+	max-width: 80ch;
+	padding: 1rem 2rem;
+}
 
 h2 {
 	margin-block-start: 4rem;

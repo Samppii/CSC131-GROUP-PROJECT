@@ -38,27 +38,36 @@ export default function Navbar({ className, ...props }: NavbarProps) {
 				onKeyDown={hide}
 			>
 				<NavbarItem to='/'>Home</NavbarItem>
-				<NavbarItem to='/about'>About</NavbarItem>
-				<NavbarItem to='/athletes'>Athletes</NavbarItem>
-				<NavbarItem to='/contact'>Contact</NavbarItem>
-				<NavbarItem to='/components'>Components</NavbarItem>
-				<NavbarItem to='/athletes/demo'>Demo Profile</NavbarItem>
+				<NavbarItem to='/about' end>
+					About
+				</NavbarItem>
+				<NavbarItem to='/athletes' end>
+					Athletes
+				</NavbarItem>
+				<NavbarItem to='/contact' end>
+					Contact
+				</NavbarItem>
+				<NavbarItem to='/components' end>
+					Components
+				</NavbarItem>
+				<NavbarItem to='/athletes/demo' end>
+					Demo Profile
+				</NavbarItem>
 			</ul>
 		</nav>
 	);
 }
 
-interface NavbarItemProps {
-	to: string;
-}
+type NavbarItemProps = React.ComponentPropsWithoutRef<typeof NavLink>;
 
 function NavbarItem({
-	to,
 	children,
+	className,
+	...props
 }: React.PropsWithChildren<NavbarItemProps>) {
 	return (
 		<li className='Navbar-item'>
-			<NavLink to={to} className='Navbar-link'>
+			<NavLink className={clsx('Navbar-link', className)} {...props}>
 				{children}
 			</NavLink>
 		</li>
