@@ -4,7 +4,9 @@ import Hero from '$lib/components/Hero';
 import Navbar from '$lib/components/Navbar';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import AthleteCarousel, { type CarouselAthlete } from '$lib/components/AthleteCarousel';
+import AthleteCarousel, {
+	type CarouselAthlete,
+} from '$lib/components/AthleteCarousel';
 import ServiceList, { type Service } from '$lib/components/ServiceList';
 import AboutVideo from '$lib/components/AboutVideo';
 import EmployeeList, { type ListEmployee } from '$lib/components/EmployeeList';

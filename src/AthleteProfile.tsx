@@ -90,14 +90,14 @@ export default function AthleteProfile() {
 			</section>
 
 			<section className='AthleteProfile-gallery'>
-				<h2 className="AthleteProfile-galleryTitle">Gallery</h2>
-				<div className="AthleteProfile-galleryImages">
+				<h2 className='AthleteProfile-galleryTitle'>Gallery</h2>
+				<div className='AthleteProfile-galleryImages'>
 					{data.galleries.map(({ id, image, alt }) => (
 						<img
-						key={id}
-						src={image}
-						alt={alt}
-						className='AthleteProfile-galleryImage'
+							key={id}
+							src={image}
+							alt={alt}
+							className='AthleteProfile-galleryImage'
 						/>
 					))}
 				</div>
