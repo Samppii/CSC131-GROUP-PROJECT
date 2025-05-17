@@ -1,0 +1,24 @@
+.AthleteGrid {
+	display: grid;
+	grid-auto-rows: minmax(24rem, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+	gap: 4rem 1.75rem;
+	justify-items: center;
+
+	padding: 2rem;
+
+	list-style-type: none;
+
+	background-color: var(--cl-drop);
+	box-shadow: var(--bs-vertical-inner);
+}
+
+.AthleteGrid-item {
+	display: contents;
+}
+
+.AthleteGrid-athlete {
+	max-width: 12rem;
+	background: none;
+	box-shadow: none;
+}

@@ -1,0 +1,63 @@
+.Athletes-body {
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	margin-block-start: 2rem;
+}
+
+.Athletes-hero {
+	display: grid;
+	place-items: center;
+}
+
+.Athletes-info {
+	display: flex;
+	flex-direction: column;
+
+	max-width: 28rem;
+	margin-inline: 2.75rem;
+
+	line-height: 1.6;
+	text-align: center;
+}
+
+.Athletes-searchContainer {
+	display: flex;
+	justify-content: space-around;
+}
+
+.Athletes-search {
+	display: flex;
+	flex: auto;
+	gap: 0.5rem;
+	align-items: center;
+
+	max-width: 40rem;
+	margin-inline: 0.75rem;
+	padding: 0.5rem;
+	border-radius: 0.25rem;
+
+	background-color: var(--cl-raise);
+	box-shadow: var(--bs-full-drop);
+}
+
+.Athletes-searchIcon {
+	flex: none;
+}
+
+.Athletes-searchInput {
+	flex: auto;
+	background: none;
+	box-shadow: none;
+}
+
+.Athletes-searchInput::placeholder {
+	font-style: italic;
+}
+
+.Athletes-notFound {
+	padding-block: 1rem;
+	text-align: center;
+	background-color: var(--cl-drop);
+	box-shadow: var(--bs-vertical-inner);
+}

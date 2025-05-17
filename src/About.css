@@ -1,316 +1,343 @@
 .About {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    color: var(--cl-foreground);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+
+	color: var(--cl-foreground);
 }
 
 /* Welcome Section */
 .About-welcome {
-    width: 100%;
-    padding: 2rem;
-    background-color: var(--cl-background);
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	padding: 2rem;
+
+	background-color: var(--cl-background);
 }
 
 .About-welcomeContent {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2rem;
-    max-width: 1000px;
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	align-items: center;
+
+	max-width: 1000px;
 }
 
 .About-welcomeImageContainer {
-    flex: 0 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	align-items: center;
 }
 
 .About-welcomeImage {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
 }
 
 .About-welcomeCaption {
-    margin-top: 0.5rem;
-    color: var(--cl-foreground);
-    font-size: 0.9rem;
-    text-align: center;
+	margin-top: 0.5rem;
+	font-size: 0.9rem;
+	color: var(--cl-foreground);
+	text-align: center;
 }
 
 .About-welcomeText {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: center;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	align-items: flex-start;
+
+	text-align: center;
 }
 
 .About-welcomeTitle {
-    font-size: 2.3rem;
-    margin-bottom: 1.5rem;
-    color: var(--cl-accent);
+	margin-bottom: 1.5rem;
+	font-size: 2.3rem;
+	color: var(--cl-accent);
 }
 
 .About-welcomeText p {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    max-width: 600px;
+	max-width: 600px;
+	margin-bottom: 1.5rem;
+	font-size: 1.1rem;
+	line-height: 1.5;
 }
 
-@media (max-width: 900px) {
-    .About-welcomeContent {
-        flex-direction: column;
-        align-items: center;
-    }
+@media (width <= 900px) {
+	.About-welcomeContent {
+		flex-direction: column;
+		align-items: center;
+	}
 
-    .About-welcomeText {
-        text-align: center;
-        align-items: center;
-    }
+	.About-welcomeText {
+		align-items: center;
+		text-align: center;
+	}
 
-    .About-welcomeTitle {
-        text-align: center;
-    }
+	.About-welcomeTitle {
+		text-align: center;
+	}
 
-    .About-welcomeText p {
-        text-align: center;
-    }
+	.About-welcomeText p {
+		text-align: center;
+	}
 }
 
 /* Hero Section */
 .About-hero {
-    width: 100%;
-    padding: 4rem 2rem;
-    background-color: var(--cl-background);
-    margin-bottom: 4rem;
+	width: 100%;
+	margin-bottom: 4rem;
+	padding: 4rem 2rem;
+	background-color: var(--cl-background);
 }
 
 .About-heroContent {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .About-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--cl-accent);
+	margin-bottom: 1.5rem;
+	font-size: 2.5rem;
+	color: var(--cl-accent);
 }
 
 .About-subtitle {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    text-align: left;
+	margin-bottom: 2rem;
+	font-size: 1.2rem;
+	line-height: 1.55;
+	text-align: left;
 }
 
 /* Team Section */
 .About-team {
-    width: 100%;
-    padding: 0.2rem 2rem 2rem;
-    background-color: var(--cl-background);
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	container-type: inline-size;
+	display: flex;
+	flex-direction: column;
+
+	width: 100%;
+	margin-bottom: 4rem;
+	padding: 0.2rem 2rem 2rem;
+
+	background-color: var(--cl-background);
+}
+
+.About-sectionTitle {
+	text-align: center;
 }
 
 .About-teamMembers {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    max-width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3rem;
+	align-self: stretch;
+	justify-content: center;
 }
 
 .About-teamMember {
-    flex: 1 1 300px;
-    max-width: 350px;
-    background-color: var(--cl-drop);
-    box-shadow: var(--bs-full-drop);
-    border-radius: 0.5rem;
-    overflow: hidden;
+	overflow: hidden;
+	flex: 1 1 300px;
+
+	max-width: 350px;
+	border-radius: 0.5rem;
+
+	background-color: var(--cl-drop);
+	box-shadow: var(--bs-full-drop);
 }
 
 .About-teamImage {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
 }
 
 .About-teamInfo {
-    padding: 1.5rem;
+	padding: 1.5rem;
 }
 
 .About-teamName {
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+	font-size: 1.25rem;
 }
 
 .About-teamTitle {
-    color: var(--cl-accent);
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: normal;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+	font-weight: normal;
+	color: var(--cl-accent);
 }
 
 .About-teamBio {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
 /* FAQ Section */
 .About-faq {
-    width: 100%;
-    padding: 4rem 2rem;
-    background-color: var(--cl-background);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+	padding: 4rem 2rem;
+
+	background-color: var(--cl-background);
 }
 
 .About-faqTitle {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--cl-accent);
-    text-align: center;
+	margin-bottom: 3rem;
+	font-size: 2.5rem;
+	color: var(--cl-accent);
+	text-align: center;
 }
 
 .About-faqItem {
-    width: 100%;
-    max-width: 800px;
-    border-top: 1px solid var(--cl-foreground);
-    padding: 1.5rem 0;
+	width: 100%;
+	max-width: 800px;
+	padding: 1.5rem 0;
+	border-top: 1px solid var(--cl-foreground);
 }
 
 .About-faqItem:last-child {
-    border-bottom: 1px solid var(--cl-foreground);
+	border-bottom: 1px solid var(--cl-foreground);
 }
 
 .About-faqQuestion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .About-faqQuestion h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--cl-accent);
+	margin: 0;
+	font-size: 1.2rem;
+	color: var(--cl-accent);
 }
 
 .About-faqIcon {
-    font-size: 1.5rem;
-    color: var(--cl-accent);
-    transition: transform 0.3s ease;
+	font-size: 1.5rem;
+	color: var(--cl-accent);
+	transition: transform 0.3s ease;
 }
 
 .About-faqItem.is-open .About-faqIcon {
-    transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 .About-faqAnswer {
-    display: block;
-    margin-top: 1rem;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--cl-foreground);
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.3s ease;
+	overflow: hidden;
+	display: block;
+
+	max-height: 0;
+	margin-top: 1rem;
+
+	font-size: 1rem;
+	line-height: 1.6;
+	color: var(--cl-foreground);
+
+	opacity: 0;
+
+	transition: all 0.3s ease;
 }
 
 .About-faqItem.is-open .About-faqAnswer {
-    opacity: 1;
-    max-height: 900px;
-    margin-top: 1rem;
+	max-height: 900px;
+	margin-top: 1rem;
+	opacity: 1;
 }
-
-
 
 /* CTA Section */
 .About-welcomeCta {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 1rem;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 1rem;
 }
+
 .About-cta {
-    width: 100%;
-    padding: 4rem 2rem;
-    background-color: var(--cl-drop);
-    box-shadow: var(--bs-vertical-inner);
+	width: 100%;
+	padding: 4rem 2rem;
+	background-color: var(--cl-drop);
+	box-shadow: var(--bs-vertical-inner);
 }
 
 .About-ctaContent {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .About-ctaContent h2 {
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
+	margin-bottom: 1rem;
+	font-size: 1.75rem;
 }
 
 .About-ctaContent p {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
+	margin-bottom: 2rem;
+	font-size: 1.2rem;
 }
+
 .About-teamCta {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    padding: 0 2rem;
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	margin-top: 2rem;
+	padding: 0 2rem;
 }
 
 .About-faqCta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    text-align: center;
-    width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: auto;
+	margin-top: 3rem;
+
+	text-align: center;
 }
 
 .About-faqCtaIcon {
-    font-size: 2rem;
-    color: var(--cl-accent);
-    margin-bottom: 1rem;
+	margin-bottom: 1rem;
+	font-size: 2rem;
+	color: var(--cl-accent);
 }
 
-
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .About-title {
-        font-size: 2rem;
-    }
+@media (width <= 768px) {
+	.About-title {
+		font-size: 2rem;
+	}
 
-    .About-sectionTitle {
-        font-size: 1.75rem;
-    }
+	.About-sectionTitle {
+		font-size: 1.75rem;
+	}
 
-    .About-serviceList,
-    .About-teamMembers {
-        gap: 1.5rem;
-    }
+	.About-subtitle {
+		font-size: 1.1rem;
+		line-height: 1.45;
+	}
 
-    .About-heroContent,
-    .About-missionContent,
-    .About-ctaContent {
-        padding: 0 1rem;
-    }
+	.About-serviceList,
+	.About-teamMembers {
+		gap: 1.5rem;
+	}
 
-    .About-teamMember {
-        flex: 1 1 100%;
-    }
+	.About-heroContent,
+	.About-missionContent,
+	.About-ctaContent {
+		padding: 0 1rem;
+	}
+
+	.About-teamMember {
+		flex: 1 1 100%;
+	}
 }

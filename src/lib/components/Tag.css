@@ -1,0 +1,11 @@
+.Tag {
+	padding: 0.25rem 0.5rem;
+	border-radius: 1rem;
+
+	font-size: var(--fs-tag);
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+
+	background-color: var(--cl-raise);
+	box-shadow: var(--bs-full-drop);
+}

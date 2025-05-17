@@ -1,0 +1,12 @@
+.TagList {
+	display: flex;
+	grid-area: tags;
+	flex-direction: row;
+	gap: 0.25rem;
+	place-self: center;
+
+	margin: 0.5rem 0;
+	padding: 0;
+
+	list-style-type: none;
+}

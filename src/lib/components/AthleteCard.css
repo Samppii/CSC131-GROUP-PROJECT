@@ -21,6 +21,7 @@
 }
 
 .AthleteCard-portrait {
+	overflow: hidden;
 	grid-area: portrait;
 
 	width: 100%;
@@ -39,6 +40,7 @@
 	color: var(--cl-accent-secondary);
 	text-align: center;
 	text-transform: uppercase;
+	white-space: nowrap;
 }
 
 .AthleteCard-info {
@@ -71,29 +73,4 @@
 	inset-block: 0;
 
 	border: 0.5px solid var(--cl-foreground);
-}
-
-.AthleteCard-tags {
-	display: flex;
-	grid-area: tags;
-	flex-direction: row;
-	gap: 0.25rem;
-	place-self: center;
-
-	margin: 0.5rem 0;
-	padding: 0;
-
-	list-style-type: none;
-}
-
-.AthleteCard-tag {
-	padding: 0.25rem 0.5rem;
-	border-radius: 1rem;
-
-	font-size: var(--fs-tag);
-	text-overflow: ellipsis;
-	text-wrap: nowrap;
-
-	background-color: var(--cl-raise);
-	box-shadow: var(--bs-full-drop);
 }

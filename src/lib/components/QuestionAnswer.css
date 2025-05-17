@@ -16,7 +16,6 @@
 	align-items: stretch;
 
 	width: 100%;
-	max-width: 20rem;
 	height: calc(var(--collapsed-height) + 2 * var(--border-width));
 	padding: var(--padding-block) var(--padding-inline);
 	border-block-start: var(--border);
@@ -47,8 +46,10 @@
 	align-items: center;
 	justify-content: space-between;
 
+	margin-block: 0;
+
 	font-family: var(--ff-accent);
-	color: var(--cl-accent-secondary);
+	color: var(--cl-accent);
 
 	transition: var(--tr-link-hover);
 }
@@ -74,7 +75,12 @@
 
 .QuestionAnswer-answer {
 	cursor: text;
+
 	position: absolute;
 	inset-block-start: var(--collapsed-height);
+
+	margin-block: 0;
 	padding-inline-end: var(--padding-inline);
+
+	line-height: 1.4;
 }

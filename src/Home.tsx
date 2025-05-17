@@ -4,10 +4,7 @@ import Hero from '$lib/components/Hero';
 import Navbar from '$lib/components/Navbar';
 import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import AthleteCarousel, {
-	type CarouselAthlete,
-} from '$lib/components/AthleteCarousel';
-import amos from '$lib/assets/amos-aguilera.webp';
+import AthleteCarousel, { type CarouselAthlete } from '$lib/components/AthleteCarousel';
 import ServiceList, { type Service } from '$lib/components/ServiceList';
 import AboutVideo from '$lib/components/AboutVideo';
 import EmployeeList, { type ListEmployee } from '$lib/components/EmployeeList';
@@ -20,12 +17,12 @@ import TestimonialList, {
 import testimonial1 from '$lib/assets/testimonial1.png';
 import testimonial2 from '$lib/assets/testimonial2.png';
 import FinalHook from '$lib/components/FinalHook';
+import { parseAthletes } from '$lib/athletes';
 
 export default function Home() {
 	const [showNav, setShowNav] = useState(false);
 	const heroRef = useRef<HTMLElement>(null);
-
-	const [nAthletes, setNAthletes] = useState(4);
+	const [athletes, setAthletes] = useState<CarouselAthlete[]>([]);
 
 	useEffect(() => {
 		const callback: IntersectionObserverCallback = entries => {
@@ -43,15 +40,12 @@ export default function Home() {
 		}
 	});
 
-	// TODO: get athletes from django
-	const athletes: CarouselAthlete[] = [...Array(nAthletes)].map((_, i) => ({
-		id: i,
-		name: 'Amos Aguilera',
-		position: '1B',
-		school: 'Jurupa Hills High School',
-		image: i === 0 ? amos : `https://unsplash.it/id/${(i * 142) % 517}/400/240`,
-		tags: ['Baseball', 'NIL', 'Multi-Sport'],
-	}));
+	useEffect(() => {
+		fetch('/api/athletes/')
+			.then(res => res.json())
+			.then(data => setAthletes(parseAthletes(data)))
+			.catch(err => console.error('Failed to fetch athletes:', err));
+	}, []);
 
 	// TODO: get services from ???
 	const services: Service[] = [
@@ -159,20 +153,6 @@ export default function Home() {
 			<Hero ref={heroRef} id='hero' />
 			<Navbar className={clsx('Home-navbar', showNav && 'is-visible')} />
 			<AthleteCarousel athletes={athletes} />
-			<label style={{ display: 'flex', flexDirection: 'row', gap: '1rem' }}>
-				Number of athletes
-				<input
-					type='range'
-					min='4'
-					max='16'
-					value={nAthletes}
-					onChange={e => {
-						const n = Number.parseInt(e.target.value);
-						if (Number.isNaN(n)) return;
-						setNAthletes(Math.max(n, 1));
-					}}
-				/>
-			</label>
 			<ServiceList services={services} />
 			<AboutVideo />
 			<EmployeeList employees={employees} />

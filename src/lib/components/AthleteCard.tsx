@@ -2,6 +2,7 @@ import type React from 'react';
 import './AthleteCard.css';
 import clsx from 'clsx';
 import { Link } from 'react-router';
+import TagList, { type ListTag } from '$lib/components/TagList';
 
 export interface Athlete {
 	name: string;
@@ -21,17 +22,16 @@ export default function AthleteCard({
 	tags,
 	image,
 	className,
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	to,
 	...props
 }: AthleteCardProps) {
-	// TODO: link to real profiles
+	const listTags: ListTag[] | undefined = tags?.map((tag, i) => ({
+		id: i,
+		body: tag,
+	}));
+
 	return (
-		<Link
-			to='/athletes/demo'
-			className={clsx('AthleteCard', className)}
-			{...props}
-		>
+		<Link to={to} className={clsx('AthleteCard', className)} {...props}>
 			<img
 				src={image}
 				alt={`Portrait of ${name}`}
@@ -43,15 +43,7 @@ export default function AthleteCard({
 				<p className='AthleteCard-school'>{school}</p>
 			</div>
 
-			{tags && (
-				<ul className='AthleteCard-tags'>
-					{tags.map(tag => (
-						<li key={tag} className='AthleteCard-tag'>
-							{tag}
-						</li>
-					))}
-				</ul>
-			)}
+			{listTags && <TagList tags={listTags} />}
 		</Link>
 	);
 }

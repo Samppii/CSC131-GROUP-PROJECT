@@ -1,0 +1,62 @@
+.Document-layout {
+  container-type: inline-size;
+  display: grid;
+  place-items: center;
+}
+
+.Document-container {
+  counter-reset: section;
+  max-width: 80ch;
+  padding: 1rem 2rem;
+}
+
+.Document-container h2 {
+  margin-block-start: 4rem;
+}
+
+.Document-container h3 {
+  margin-block-start: 3rem;
+}
+
+.Document-container h2::before {
+  content: counter(section) ". ";
+  counter-increment: section;
+}
+
+.Document-container table {
+  display: grid;
+}
+
+.Document-container :where(thead, tbody, tr) {
+  display: contents;
+}
+
+.PrivacyPolicy-cookieTable {
+  --border-width: 1px;
+  --border-color: var(--cl-foreground);
+
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.CookieTable-header {
+  border-block-end: var(--border-width) solid var(--border-color);
+}
+
+.CookieTable-header,
+.CookieTable-name,
+.CookieTable-purpose {
+  padding: 0.5rem;
+  background-color: var(--cl-background);
+}
+
+.CookieTable-name {
+  text-align: center;
+}
+
+.Document-contactInfo {
+  margin-block-start: 2rem;
+}
+
+.Document-container :where(p, li) {
+  line-height: 1.6;
+}

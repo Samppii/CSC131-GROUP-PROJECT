@@ -1,0 +1,25 @@
+.StatCarousel {
+	scroll-snap-type: x mandatory;
+
+	container-type: inline-size;
+	overflow: auto;
+	display: flex;
+	gap: 4rem;
+	align-items: center;
+	justify-content: space-evenly;
+
+	padding: 1.5rem 1rem;
+
+	background-color: var(--cl-drop);
+	box-shadow: var(--bs-vertical-inner);
+}
+
+.StatCarousel-card {
+	scroll-snap-align: center;
+	flex: auto;
+	max-width: 30rem;
+
+	@container (width < 500px) {
+		min-width: 100%;
+	}
+}
