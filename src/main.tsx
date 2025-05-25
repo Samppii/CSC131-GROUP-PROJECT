@@ -31,7 +31,7 @@ const root = document.getElementById('root');
 if (root) {
 	createRoot(root).render(
 		<StrictMode>
-			<BrowserRouter>
+			<BrowserRouter basename='/pcm_demo'>
 				<ScrollToTop />
 				<Routes>
 					<Route index element={<Home />} />
